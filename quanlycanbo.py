@@ -17,7 +17,7 @@ class CongNhan(CanBo):
         self.bac = int(bac)
 
     def hien_thi_thong_tin(self):
-        return super().hien_thi_thong_tin() + f", Bậc: {self.bac}"
+        return super().hien_thi_thong_tin() + f", \nBậc: {self.bac}"
 
 
 class KySu(CanBo):
@@ -26,7 +26,7 @@ class KySu(CanBo):
         self.nganh_dao_tao = int(nganh_dao_tao)
 
     def hien_thi_thong_tin(self):
-        return super().hien_thi_thong_tin() + f", Ngành đào tạo: {self.nganh_dao_tao}"
+        return super().hien_thi_thong_tin() + f", \nNgành đào tạo: {self.nganh_dao_tao}"
 
 
 class NhanVien(CanBo):
@@ -35,7 +35,7 @@ class NhanVien(CanBo):
         self.cong_viec = int(cong_viec)
 
     def hien_thi_thong_tin(self):
-        return super().hien_thi_thong_tin() + f", Công việc: {self.cong_viec}"
+        return super().hien_thi_thong_tin() + f", \nCông việc: {self.cong_viec}"
     
 
 class QLCB:
@@ -49,10 +49,7 @@ class QLCB:
             print("Đối tượng không hợp lệ, không phải là cán bộ.")
 
     def tim_kiem_theo_ho_ten(self, ten):
-        if isinstance(ten, CanBo):
-            return [cb for cb in self.danh_sach_can_bo if cb.ho_ten.lower() == ten.lower()]
-        else:
-            print("Không tìm thấy tên")
+        return [cb for cb in self.danh_sach_can_bo if cb.ho_ten.lower() == ten.lower()]
 
     def hien_thi_danh_sach(self):
         if not self.danh_sach_can_bo:
